@@ -14,8 +14,7 @@ import com.example.floriandagger.di.DieselEngineModule;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
-   @Inject
-   public Car car;
+    @Inject Car toyota, alfaRomeo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         CarComponent carComponent= DaggerCarComponent.builder().horsePower(150).torque(400).build();
         carComponent.inject(this);
-        //Car car = carComponent.getCar();
-        car.drive();
 
-
+        toyota.drive();
+        alfaRomeo.drive();
     }
 }
