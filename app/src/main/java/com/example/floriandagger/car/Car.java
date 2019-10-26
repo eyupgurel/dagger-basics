@@ -2,8 +2,10 @@ package com.example.floriandagger.car;
 
 import android.util.Log;
 
-import javax.inject.Inject;
+import com.example.floriandagger.di.Activity;
 
+import javax.inject.Inject;
+@Activity
 public class Car {
     private static final String TAG = "Car";
     private Driver driver;

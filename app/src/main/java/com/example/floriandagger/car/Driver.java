@@ -5,8 +5,4 @@ import javax.inject.Singleton;
 
 @Singleton
 public class Driver {
-    private static final String TAG = "Car";
-    @Inject
-    public Driver() {
-    }
 }
