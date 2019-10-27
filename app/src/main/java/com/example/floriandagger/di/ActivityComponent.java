@@ -16,12 +16,21 @@ public interface ActivityComponent {
     void inject(MainActivity mainActivity);
 
 
+    /*
     @Subcomponent.Builder
-    interface Builder{
-        @BindsInstance
-        Builder horsePower(@Named("horse power") int horsePower);
-        @BindsInstance
-        Builder torque(@Named("torque") int torque);
+     interface Builder{
+        Builder horsePower(@BindsInstance @Named("horse power") int horsePower);
+        Builder torque(@BindsInstance @Named("torque") int torque);
         ActivityComponent build();
     }
+    */
+
+    @Subcomponent.Factory
+    interface Factory
+    {
+        ActivityComponent create(@BindsInstance @Named("horse power") int horsePower,
+                                                            @BindsInstance @Named("torque") int torque);
+    }
+
+
 }
