@@ -1,7 +1,4 @@
 package com.example.floriandagger.di;
-
-import com.example.floriandagger.car.Driver;
-
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -10,4 +7,8 @@ import dagger.Component;
 @Component(modules={DriverModule.class})
 public interface AppComponent {
     ActivityComponent.Factory getActivityComponentFactory();
+    @Component.Factory
+    interface Factory{
+        AppComponent create(DriverModule driverModule);
+    }
 }

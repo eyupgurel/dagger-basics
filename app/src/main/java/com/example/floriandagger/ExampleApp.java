@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.floriandagger.di.AppComponent;
 import com.example.floriandagger.di.DaggerAppComponent;
+import com.example.floriandagger.di.DriverModule;
 
 public class ExampleApp extends Application {
 
@@ -11,7 +12,7 @@ public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.create();
+        appComponent = DaggerAppComponent.factory().create(new DriverModule(" Tunay"));
     }
     public AppComponent getAppComponent(){
         return appComponent;
