@@ -6,8 +6,7 @@ import android.os.Bundle;
 
 import com.example.floriandagger.car.Car;
 import com.example.floriandagger.di.ActivityComponent;
-import com.example.floriandagger.di.AppComponent;
-import com.example.floriandagger.di.DaggerActivityComponent;
+import com.example.floriandagger.di.DieselEngineModule;
 
 import javax.inject.Inject;
 
@@ -18,10 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityComponent activityComponent = DaggerActivityComponent.builder().
-                horsePower(300).
-                torque(700).
-                appComponent(((ExampleApp) getApplication()).getAppComponent()).build();
+        ActivityComponent activityComponent =  ((ExampleApp) getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(700));
+
         activityComponent.inject(this);
 
         toyota1.drive();
