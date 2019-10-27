@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityComponent activityComponent =  ((ExampleApp) getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(700));
+        ActivityComponent activityComponent =  ((ExampleApp) getApplication()).getAppComponent().getActivityComponentBuilder().horsePower(1200).torque(4000).build();
 
         activityComponent.inject(this);
 
